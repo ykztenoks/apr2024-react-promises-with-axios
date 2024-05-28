@@ -5,6 +5,8 @@ function Homepage({ posts }) {
   return (
     <div className="center">
       <h3>Posts list:</h3>
+      {/* conditional render, if posts state has array of objects, show the PostList
+      if not, shows loading spinner */}
       {posts ? (
         <PostList posts={posts} />
       ) : (
