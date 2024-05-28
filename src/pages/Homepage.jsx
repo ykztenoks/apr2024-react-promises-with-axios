@@ -1,20 +1,22 @@
 import { Link } from "react-router-dom";
-
+import PostList from "../components/PostList";
+import { ColorRing } from "react-loader-spinner";
 function Homepage({ posts }) {
   return (
-    <div>
+    <div className="center">
       <h3>Posts list:</h3>
       {posts ? (
-        posts.map((element) => (
-          <div key={element.id}>
-            <Link to={`/posts/${element.id}`}>
-              <h1>{element.title}</h1>
-            </Link>
-            <p>{element.body}</p>
-          </div>
-        ))
+        <PostList posts={posts} />
       ) : (
-        <p>No posts yet</p>
+        <ColorRing
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="color-ring-loading"
+          wrapperStyle={{}}
+          wrapperClass="color-ring-wrapper"
+          colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+        />
       )}
     </div>
   );
